@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+  {% load i18n %}
+  {% load account socialaccount %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
+  <!--===============================================================================================-->
+
+  <!--===============================================================================================-->
+    <!-- MBbootstrap links -->
+    <!-- https://mdbootstrap.com/docs/standard/getting-started/installation/ -->
+  <!--===============================================================================================-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css" rel="stylesheet"/>
+  <script type="text/javascript" nsrc="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.umd.min.js"></script>
+  
+<!--===============================================================================================-->
+</head>
+<body>
+
+<!-- Pills content -->
+<div class="container my-5 vh-100">
+  <div class="container-fluid col-md-6 card p-2 my-auto">
+		<div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+			<div class="">
+        <ul class="nav nav-pills nav-justified mb-3">
+          <li class="nav-item" role="presentation">
+            
+            <a href="{% url 'index' %}" class="nav-link active" id="tab-login"><img class="signin-logo" src="/static/assets/img/favicons/favicon-32x32.png"> </a>
+          </li>
+        </ul>
+				<form class="login100-form validate-form flex-sb flex-w text-center" method="post" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          {% if form.errors %}
+          {% for error in form.non_field_errors %}
+              <div class="alert alert-danger" role="alert">
+                  <strong>{{ error|escape }}</strong>
+              </div>
+          {% endfor %}
+          {% endif %}
+					
+					<div class="p-t-31 p-b-9">
+						<span class="txt1">
+							E-mail or Username
+						</span>
+					</div>
+
+          <!-- <div class="form-outline mb-4">
+            <input type="email" id="loginName" class="form-control"  name="login" id="id_login"/>
+            <label class="form-label" for="loginName">Email or username</label>
+          </div> -->
+
+          
+					<div class="form-outline mb-4" data-validate = "Username or E-mail is required">
+            <input type="text" class="input100" name="login" id="id_login">
+						<span class="focus-input100"></span>
+					</div>
+          {% for error in form.login.errors %}
+            <div class="alert alert-warning" role="alert">
+                <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+					
+					<div class="p-t-13 p-b-9">
+						<span class="txt1">
+							Password
+						</span>
+
+						<!-- <a href="{% url 'account_reset_password' %}" class="txt2 bo1 m-l-5">
+							Forgot?
+						</a> -->
+					</div>
+					<div class="form-outline mb-4" data-validate = "Password is required">
+            <input type="password" class="input100" name="password" id="id_password">
+						<span class="focus-input100"></span>
+					</div>
+          {% for error in form.password.errors %}
+            <div class="alert alert-warning" role="alert">
+                <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+          <div class="row mb-4">
+            <div class="col-md-6 d-flex justify-content-center">
+              <!-- Checkbox -->
+              <div class="form-check mb-3 mb-md-0">
+                <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                <label class="form-check-label" for="loginCheck"> Remember me</label>
+              </div>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-center">
+              <!-- Simple link -->
+              <a href="{% url 'account_reset_password' %}">Forgot password?</a>
+            </div>
+          </div>
+					<button class="btn btn-primary btn-block mb-4" type="submit" value="Log In">
+						Sign In
+					</button>
+
+          <!-- Register buttons -->
+          <div class="text-center">
+            <p>If you have not created an account yet, then please 
+              <a href="{{ signup_url }}" class="txt2 bo1">
+                Sign up now
+              </a>
+            </p>
+          </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	
+<!--===============================================================================================-->
+	<script src="/static/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="/static/assets/js/auth_main.js"></script>
+
+</body>
+</html>

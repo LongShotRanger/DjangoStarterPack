@@ -1,0 +1,62 @@
+{% extends 'main/layouts/base.html' %}
+
+{% block title %}Django | Home{% endblock title %}
+{% block stylesheets %}
+<style>
+  /* Remove the navbar's default margin-bottom and rounded borders */ 
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .full-height{
+    height: 100vh;
+  }
+  
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height: 450px}
+
+  /* Set black background color, white text and some padding */
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+  }
+</style>
+
+{% endblock stylesheets %}
+{% block content %}
+
+<div class="container-fluid full-height row d-flex justify-content-center m-auto">    
+  <div class="row content m-auto">
+    <div class="col-sm-12"> 
+      <h1>Welcome to the Django Starter Pack for Localhost!</h1>
+      <p>Embark on your journey into web development with our Django Starter Pack tailored for localhost. Whether you're a novice or an experienced developer, this comprehensive package provides you with the essential tools to kickstart your Django projects right on your local machine.</p>
+    </div>
+    <div class="col-sm-12 m-auto"> 
+      <hr>
+      <h3>Key Features:</h3>
+      <ul class="">
+        <li><strong>Django Framework:</strong> Harness the power of Django, a high-level web framework that encourages rapid development and clean, pragmatic design.</li>
+        <li><strong>Bootstrap Template:</strong> Jumpstart your frontend with a responsive Bootstrap template, ensuring your applications look sleek and modern from the get-go.</li>
+        <li><strong>Database Integration:</strong> Seamlessly connect your Django applications to a database of your choice, empowering you to store and retrieve data efficiently.</li>
+        <li><strong>User Authentication:</strong> Implement secure user authentication with Django's built-in features, giving your applications robust user management capabilities.</li>
+      </ul>
+    </div>
+    <div class="col-sm-12 m-auto"> 
+      <hr>
+      <h3>Getting Started:</h3>
+      <ol class="">
+        <li>Clone the repository.</li>
+        <li>Install dependencies with a single command.</li>
+        <li>Launch your Django development server.</li>
+        <li>Begin building awesome web applications!</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+{% block scripts %}
+
+{% endblock scripts %}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sign Up</title>
+  <!-- Required meta tags -->
+  {% load crispy_forms_tags %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
+<!--===============================================================================================-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css" rel="stylesheet"/>
+	<script type="text/javascript" nsrc="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.umd.min.js"></script>
+<!--===============================================================================================-->
+</head>
+<body>
+	
+
+
+<div class="container my-5">
+	<div class="container-fluid col-md-6 card p-2 my-auto">
+		<ul class="nav nav-pills nav-justified mb-3">
+			<li class="nav-item" role="presentation">
+			  
+			  <a href="{% url 'index' %}" class="nav-link active" id="tab-login"><img class="signin-logo" src="/static/assets/img/favicons/favicon-32x32.png"> </a>
+			</li>
+		  </ul>
+        <form class="text-center" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+			
+			<!-- <a href="#" class="btn-face m-b-20">
+				<i class="fa fa-facebook-official"></i>
+				Facebook
+			</a>-->
+			{% load socialaccount %}
+			<!-- <a href="{% provider_login_url 'google' %}" class="btn-google m-b-20" style="width:100%">
+				<img src="/static/assets/img/icons/icon-google.png" alt="GOOGLE">
+				Google
+			</a>  -->
+			<div class="">
+			{% if form.errors %}
+			{% for field in form %}
+				{% for error in field.errors %}
+					<div class="alert alert-error">
+						<strong>{{ error|escape }}</strong>
+					</div>
+				{% endfor %}
+			{% endfor %}
+			{% for error in form.non_field_errors %}
+				<div class="alert alert-error">
+					<strong>{{ error|escape }}</strong>
+				</div>
+			{% endfor %}
+			{% endif %}
+			</div>
+
+			<div class="form-outline">
+				<span class="txt1">
+					Username
+				</span>
+			</div>
+			<div class="form-outline  mb-4" data-validate = "Username is required">
+				<input type="text" class="input100" id="id_username" name="username">
+				<span class="focus-input100"></span>
+			</div>
+
+			<div class="form-outline">
+				<span class="txt1">
+					E-mail
+				</span>
+			</div>
+			<div class="form-outline mb-4" data-validate = "E-mail is required">
+				<input type="text" class="input100" id="id_email" name="email">
+				<span class="focus-input100"></span>
+			</div>
+			
+			<div class="form-outline">
+				<span class="txt1">
+					Password
+				</span>
+			</div>
+			<div class="form-outline mb-4" data-validate = "Password is required">
+				<input type="password" class="input100" id="id_password1" name="password1">
+				<span class="focus-input100"></span>
+			</div>
+			<div class="form-outline ">
+				<span class="txt1">
+					Confirm Password
+				</span>
+			</div>
+			<div class="wrap-input100 validate-input mb-4" data-validate = "Password is required">
+				<input type="password" class="input100" id="id_password2" name="password2">
+				<span class="focus-input100"></span>
+			</div>
+
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+
+			<div class="container-login100-form-btn m-t-17">
+				<button class="btn btn-primary btn-block mb-4" type="submit" value="Sign Up">
+					Sign Up
+				</button>
+			</div>
+
+			<div class="w-full text-center p-t-20">
+				<span class="txt2">
+					Already a member?
+				</span>
+
+				<a href="{{ login_url }}" class="txt2 bo1">
+					Sign in now
+				</a>
+			</div>
+		</form>
+	</div>
+</div>
+	
+<!--===============================================================================================-->
+	<script src="/static/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="/static/assets/js/auth_main.js"></script>
+
+</body>
+</html>
