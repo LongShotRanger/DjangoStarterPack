@@ -11,7 +11,7 @@ This repository serves as a Django starter project, providing a foundational str
 
 1. **Clone Git Repository:**
     ```bash
-    git clone https://github.com/jitesh-oss/lgp_django.git .
+    git clone [https://github.com/jitesh-oss/lgp_django.git](https://github.com/LongShotRanger/DjangoStarterPack.git) .
     ```
 
 2. **Setup Virtual Environment:**
