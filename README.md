@@ -2,7 +2,6 @@
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-[![Version Status](https://img.shields.io/badge/Version-dev-<COLOR>.svg)](https://new.lifetimegenetics.com/)
 
 # Django Starter Project
 
